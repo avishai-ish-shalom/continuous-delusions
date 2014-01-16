@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Continuous Delusions</h1>
+					<h2>The hard truth about deployment</h2>
+					<p>Avishai Ish-Shalom (@nukemberg)</p>
+				</section>
+				<section>
+					<section>
+						<h2>Everybody is talking about (Continuous) Deployment</h2>
+					</section>
+					<section>
+						<h2>In production, Deployment is just another process</h2>
+						<aside class="notes">
+							<ul>
+								<li>In a production environment we have many processes active, most are uncontrollable and hard to track<ul>
+								<li>Hardware failures, network failures, software bugs, anomalous clients, attacks </li>
+								<li>Business transactions are a also a process, a data-mutating process that happens a lot and we can't control the trigger</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h2>Deployment is a (relatively) controllable process</h2>
+						<ul>
+							<li>We control the when</li>
+							<li>We control the what</li>
+							<li>We can diff the change</li>
+							<li>We can track the change</li>
+							<li>We employ whomever wrote the code</li>
+						</ul>
+						<aside class="notes">
+							By contrast, upgrading a Database version is more problematic
+							<ul>
+								<li>We didn't review the new code</li>
+								<li>Actually, we don't know the old code either</li>
+								<li>They guy that wrote the new code isn't on call. Heck, he doesn't even work for us</li>
+								<li>Monitoring/debugging is limited</li>
+								<li>Did I mention the data is in the database?</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<p>You may be deploying code 10 times a day</p>
+						<p>But you are deploying data 1000 times <em>a second</em></p>
+						<aside class="notes">
+							<ul>
+								<li>You can <code>git diff</code> the code. Can you diff the data set?</li>
+								<li>You can stop a deploy and not lose money. Can you do that for transactions?</li>
+							</ul>
+						</aside>
+					</section>
+						
+				</section>
+				<section>
+					<section>
+						<h1>Why deploy?</h1>
+					</section>
+					<section>
+						<h2>Deployments (hopefully) increase value</h2>
+						<aside class="notes">
+							<ul>
+								<li>Deployments deliver <em>value</em><ul>
+								<li>And sometimes they don't</li>
+								<li>Sometimes they <em>reduce</em> value</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h2>Undeployed code is inventory</h2>
+						<aside class="notes">
+							<ul>
+								<li>Deployments represent work we already paid for<ul>
+								<li>Simple, don't pay for work you aren't sure will bring value</li>
+								<li>Kanban, don't deliver until code was pulled</li>
+								<li>Value stream is built wrong. It should be Users -&gt; (Product -&gt;) Ops -&gt; (QA -&gt;) Dev</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h2>We want to be deploying 10 times a day</h2>
+						<h3 class="fragment red">Wrong goal</h3>
+					</section>
+					<section>
+						<h2>We want to deploy whenever we need to</h2>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>So why is deployment such a big deal?</h1>
+						<h2 class="fragment">It shouldn't be</h2>
+						<aside class="notes">
+							<ul>
+								<li>Developers really care about deployments - they are the endgame of development sprint</li>				
+								<li>Catastrophy is noisy, success is silent<ul>
+								<li>Most talks come out of pain</li>
+								<li>People who do deployments really well don't talk about it because it's a non-issue</li>								
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<p>Most systems are actually pretty fragile (regardless of deployments)</p>
+					</section>
+					<section>
+						<p>Deployment difficulties are usually symptoms of systemic problems</p>
+						<ul>
+							<li>architectural</li>
+							<li>organizational</li>
+							<li>cultural</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>I just wan't to deliver code</h1>
+					</section>
+					<section>
+						<h2>Boundaries are fuzzy</h2>
+						<ul>
+							<li>Side-effects</li>
+							<li>Can potentialy change system dynamics</li>
+						</ul>
+						<aside class="notes">
+							<ul>
+								<li>Deployments bring changes<ul>
+								<li>Most are welcome and planned</li>
+								<li>Wow! Deployments can change system dynamics!<ul>
+								<li>And so can just about everything else. It's called <em>an incident</em> and most are not caused by deployments</li>
+								<li>In a complex system it's hard to analyze the significance of interaction. That's why we call it <em>complex</em></li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h2>Deployment is <em>not</em> timescoped</h2>
+						<li>Beginning is objective</li>
+						<li>End is subjective</li>
+						<li>timeframes may overlap</li>
+					</section>
+					<section>
+						<h2>Deployment is not about file distribution</h2>
+						<aside class="notes">
+							<ul>
+								<li>File distribution isn't really that big a deal, it's been solved 15 years ago</li>
+								<li>Unless you are deploying to 20k servers at once, shipping the code is easy</li>
+								<li>Fabric vs Capistrano vs Chef vs Puppet vs Salt vs Ansible vs * catfights are ridiculous</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h2>Deployment is about Control</h2>
+						<ul>
+							<li>Orchestration</li>
+							<li>Monitoring/Telemetry</li>
+							<li>Understanding system behaviour</li>
+						</ul>
+					</section>	
+					<section>
+						<h2>Deployment is about Architecture</h2>
+						<ul>
+							<li>Sync/Async, pull/push - time (in)dependence</li>
+							<li>Data mutations</li>
+							<li>Multi version co-existance</li>
+							<li>Synchronization of multiple changes</li>
+						</ul>
+					</section>
+				</section>
+				<section>					
+					<h2>Bottom line</h2>
+					<ul>
+						<li>There will never be a tool that solves your deployment problems</li>
+						<li>It's not about tooling or automation; It's about control, data and architecture</li>
+						<li>Don't deploy just cause you wrote some code, write some code cause you need to deploy (pull rather then push)</li>
+						<li>These problems are <em>not</em> specific to deployment. Deal with them systematically</li>
+					</ul>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="reveal.js/lib/js/head.min.js"></script>
+		<script src="reveal.js/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
