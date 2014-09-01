@@ -42,165 +42,153 @@
 					<p>Avishai Ish-Shalom (@nukemberg)</p>
 				</section>
 				<section>
+					<img src="assets/images/cambodian-khmer_farmers.jpg">
+					<aside class="notes">
+						<ul>
+							<li>Story about the israelli agriculture guide in Cambodia</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
 					<section>
 						<h2>Everybody is talking about (Continuous) Deployment</h2>
 					</section>
 					<section>
-						<h2>In production, Deployment is just another process</h2>
+						<h2>Deployment is painfull and slow</h2>
+						<h2>And we need to move faster</h2>
+					</section>
+					<section>
+						<h2>Automated testing, CI, CM, Deployment tools</h2>
+					</section>
+					<section>
+						<h2>Build ya a CI/CD pipeline</h2>
+						<img src="assets/images/dr-zoidberg-futurama-philip-j-799022-2560x1600.jpg">
+					</section>
+					<section>
+						<h2>For a while, things are better</h2>
 						<aside class="notes">
 							<ul>
-								<li>In a production environment we have many processes active, most are uncontrollable and hard to track</li>
-								<li>Hardware failures, network failures, software bugs, anomalous clients, attacks </li>
-								<li>Business transactions are a also a process, a data-mutating process that happens a lot and we can't control the trigger</li>
+								<li>Deployment time is shorter</li>
+								<li>Automated build &amp; deploy</li>
 							</ul>
 						</aside>
 					</section>
 					<section>
-						<h2>Deployment is a (relatively) controllable process</h2>
-						<ul>
-							<li>We control the when</li>
-							<li>We control the what</li>
-							<li>We can diff the change</li>
-							<li>We can track the change</li>
-							<li>We employ whomever wrote the code</li>
-						</ul>
+						<img src="http://i.imgur.com/pgE56rT.png">
+						<h3>But things don't go exactly as planned</h3>
+					</section>
+					<section>
+						<img src="http://img1.wikia.nocookie.net/__cb20090718002225/en.futurama/images/0/0a/Futurama_209_-_Why_Must_I_Be_a_Crustacean_in_Love_.jpg">
 						<aside class="notes">
-							By contrast, upgrading a Database version is more problematic
+							<p>After a severe incident, they have a copmany meeting</p>
 							<ul>
-								<li>We didn't review the new code</li>
-								<li>Actually, we don't know the old code either</li>
-								<li>They guy that wrote the new code isn't on call. Heck, he doesn't even work for us</li>
-								<li>Monitoring/debugging is limited</li>
-								<li>Did I mention the data is in the database?</li>
+								<li>Developers and Ops are at each other's throats</li>
+								<li>DBA team fenced off</li>
+								<li>QA team feels left out</li>
+								<li>No visibility and control</li>
+								<li>Complexity grows fast</li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<img src="http://basementrejects.com/wp-content/uploads/2013/08/futurama-season-1-4-loves-labours-lost-in-space-leela-zapp-brannigan.jpg">
+						<h3>How did we get here?</h3>
+					</section>
+					<section>
+						<h2>Incompatible organizational structure</h2>
+						<h3>(Conway's Law)</h3>
+						<aside class="notes">
+							<ul>
+								<li>Responsibilities and Control misaligned</li>
+								<li>Whollistic process with siloed teams</li>
+								<li>Impossible to coordinate changes</li>
+								<li>Lots of ping-pong between teams</li>
 							</ul>
 						</aside>
 					</section>
 					<section>
-						<p>You may be deploying code 10 times a day</p>
-						<p>But you are deploying data 1000 times <em>a second</em></p>
+						<h2>Deployment latency &lt;&lt; ticket round-trip</h2>
 						<aside class="notes">
 							<ul>
-								<li>You can <code>git diff</code> the code. Can you diff the data set?</li>
-								<li>You can stop a deploy and not lose money. Can you do that for transactions?</li>
+								<li>So anything not in CD is way behind schedule</li>
+								<li>E.g. a new feature takes 1 click to deploy but getting it monitored means waiting 1-2 days for the monitoring team</li>
 							</ul>
 						</aside>
 					</section>
+					<section>
+						<h2>Tools will not save you</h2>
+					</section>
+					<section>
+						<h2>Wrong goals</h2>
+						<blockquote>We want to be deploying 10 times a day</blockquote>
+						<aside class="notes">
+							<ul>
+								<li>we want to deploy whenever we need to</li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>The original sin</h1>
+					</section>
+					<section>
+						<h2>Unflexible architecture</h2>
+					</section>
+					<section>
+						<h2>Fragile system</h2>
+						<aside class="notes">
+			              <ul>
+			                <li>Most systems are fragile regardless of deployment</li>
+			                <li>Deployments break the system because everything breaks it</li>
+			              </ul>
+			            </aside>
+					</section>
+					<section>
+						<h1>Systemic issues</h1>
+						<h2>Mentality is the biggest barrier</h2>
+					</section>
+				</section>
 						
-				</section>
 				<section>
 					<section>
-						<h1>Why deploy?</h1>
+						<h1>Back to the basics</h1>
 					</section>
 					<section>
-						<h2>Deployments (hopefully) increase value</h2>
-						<aside class="notes">
+						<h2>
 							<ul>
-								<li>Deployments deliver <em>value</em></li>
-								<li>And sometimes they don't</li>
-								<li>Sometimes they <em>reduce</em> value</li>
+								<li>Small increments are safer</li>
+								<li>Fast feedback loops</li>
+								<li>Less inventory</li>
 							</ul>
-						</aside>
+						</h2>
 					</section>
 					<section>
-						<h2>Undeployed code is inventory</h2>
-						<aside class="notes">
-							<ul>
-								<li>Deployments represent work we already paid for<ul>
-								<li>Simple, don't pay for work you aren't sure will bring value</li>
-								<li>Kanban, don't deliver until code was pulled</li>
-								<li>Value stream is built wrong. It should be Users -&gt; (Product -&gt;) Ops -&gt; (QA -&gt;) Dev</li>
-							</ul>
-						</aside>
-					</section>
-					<section>
-						<h2>We want to be deploying 10 times a day</h2>
-						<h3 class="fragment red">Wrong goal</h3>
-					</section>
-					<section>
-						<h2>We want to deploy whenever we need to</h2>
-					</section>
-				</section>
-				<section>
-					<section>
-						<h1>So why is deployment such a big deal?</h1>
-						<aside class="notes">
-							<ul>
-								<li>Developers really care about deployments - they are the endgame of development sprint</li>				
-								<li>Catastrophy is noisy, success is silent</li>
-								<li>Most talks come out of pain</li>
-								<li>People who do deployments really well don't talk about it because it's a non-issue</li>								
-							</ul>
-						</aside>
-					</section>
-					<section>
-						<h2>Fragility</h2>
-            <aside class="notes">
-              <ul>
-                <li>Most systems are fragile regardless of deployment</li>
-                <li>Deployments break the system because everything breaks it</li>
-              </ul>
-            </aside>
-					</section>
-					<section>
-						<h2>Architecture</h2>
-            <aside class="notes">
-              <ul>
-                <li>Deployment flow must be supported in architecture</li>
-                <li>E.g. zero downtime deploy</li>
-                <li>E.g. db schema changes</li>
-                <li>E.g. pull vs push</li>
-              </ul>
-            </aside>
-					</section>
-					<section>
-						<h2>Organizational issues</h2>
-            <aside class="notes">
-              <ul>
-                <li>Risk management</li>
-                <li>Beurocracy, cooperation between departments</li>
-                <li>Methodologies</li>
-              </ul>
-            </aside>
-					</section>
-					<section>
-						<h2>Culture</h2>
-            <aside class="notes">
-              <ul>
-                <li>DevOps, or lack there-of</li>
-              </ul>
-            </aside>
-					</section>
-				</section>
-				<section>
-					<section>
-						<h1>I just want to deliver code</h1>
-					</section>
-					<section>
-						<h2>Boundaries are fuzzy</h2>
+						<h2>Feedback!!!</h2>
 						<ul>
-							<li>Side-effects</li>
-							<li>Can potentialy change system dynamics</li>
-						</ul>
-						<aside class="notes">
-							<ul>
-								<li>Deployments bring changes</li>
-								<li>Most are welcome and planned</li>
-								<li>Wow! Deployments can change system dynamics!</li>
-								<li>And so can just about everything else. It's called <em>an incident</em> and most are not caused by deployments</li>
-								<li>In a complex system it's hard to analyze the significance of interaction. That's why we call it <em>complex</em></li>
-							</ul>
-						</aside>
-					</section>
-					<section>
-						<h2>Deployment is <em>not</em> timescoped</h2>
-						<ul>
-							<li>Beginning is objective</li>
-							<li>End is subjective</li>
-							<li>timeframes may overlap</li>							
+							<li>Monitoring</li>
+							<li>Analytics, metrics</li>
+							<li>Hands-on</li>
 						</ul>
 					</section>
 					<section>
-						<h2>Deployment is not about file distribution</h2>
+						<h2>Concurrent deploys</h2>
+					</section>
+					<section>
+						<h2>Cross company effects</h2>
+					</section>
+<!-- 					<section>
+						<h2>Code always warm</h2>
+					</section> -->
+				</section>
+				<section>
+					<section>
+						<h1>Bottom line</h1>
+					</section>
+					<section>
+						<h2>C.D. is not about file distribution</h2>
 						<aside class="notes">
 							<ul>
 								<li>File distribution isn't really that big a deal, it's been solved 15 years ago</li>
@@ -210,7 +198,7 @@
 						</aside>
 					</section>
 					<section>
-						<h2>Deployment is about Control</h2>
+						<h2>C.D. is about Control</h2>
 						<ul>
 							<li>Orchestration</li>
 							<li>Monitoring/Telemetry</li>
@@ -218,23 +206,30 @@
 						</ul>
 					</section>	
 					<section>
-						<h2>Deployment is about Architecture</h2>
-						<ul>
-							<li>Sync/Async, pull/push - time (in)dependence</li>
-							<li>Data mutations</li>
-							<li>Multi version co-existance</li>
-							<li>Synchronization of multiple changes</li>
-						</ul>
+						<h2>C.D. is about Architecture</h2>
+						<aside class="notes">
+							<ul>
+								<li>Sync/Async, pull/push - time (in)dependence</li>
+								<li>Data mutations</li>
+								<li>Multi version co-existance</li>
+								<li>Synchronization of multiple changes</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h2>C.D. is about Culture</h2>
 					</section>
 				</section>
-				<section>					
-					<h2>Bottom line</h2>
-					<ul>
-						<li>There will never be a tool that solves your deployment problems</li>
-						<li>It's not about tooling or automation; It's about control, data and architecture</li>
-						<li>Don't deploy just cause you wrote some code, write some code cause you need to deploy (pull rather then push)</li>
-						<li>These problems are <em>not</em> specific to deployment. Deal with them systematically</li>
-					</ul>
+				<section>	
+					<h1>Thank you</h1>
+					<aside class="notes">
+						<ul>
+							<li>There will never be a tool that solves your deployment problems</li>
+							<li>It's not about tooling or automation; It's about control, data and architecture</li>
+							<li>Don't deploy just cause you wrote some code, write some code cause you need to deploy (pull rather then push)</li>
+							<li>These problems are <em>not</em> specific to deployment. Deal with them systematically</li>
+						</ul>
+					</aside>
 				</section>
 			</div>
 
