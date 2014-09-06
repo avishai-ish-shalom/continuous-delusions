@@ -40,6 +40,13 @@
 					<h1>Continuous Delusions</h1>
 					<h2>The hard truth about deployment</h2>
 					<p>Avishai Ish-Shalom (@nukemberg)</p>
+					<aside class="notes">
+						<ul>
+							<li>Everybody talking about CD, but always in a technical context</li>
+							<li>They speak of automation, CI, testing</li>
+							<li>Nobody is speaking about the cultural and oragznizational implications</li>
+						</ul>
+					</aside>
 				</section>
 				<section>
 					<img src="assets/images/cambodian-khmer_farmers.jpg">
@@ -54,7 +61,7 @@
 					<section>
 						<h2>Everybody is talking about (Continuous) Deployment</h2>
 						<aside class="notes">
-						<p>CD is often initiated when a manager goes to a conference and hears a talk about CD</p>
+						<p>CD is often initiated when a manager goes to a conference much like this one and hears a talk about CD</p>
 						</aside>
 					</section>
 					<section>
@@ -93,6 +100,7 @@
 						<aside class="notes">
 							<p>After a severe incident, they have a copmany meeting</p>
 							<ul>
+								<li>Production system degraded over time</li>
 								<li>Developers and Ops are at each other's throats</li>
 								<li>DBA team fenced off</li>
 								<li>QA team feels left out</li>
@@ -130,7 +138,10 @@
 					</section>
 					<section>
 						<h2>Tools alone will not save you</h2>
-						<p>Personally i feel the main issue is that the original goals were wrong</p>
+						<aside class="notes">
+							<p>Stories: the company with hidden CI server, the company with multiple deployment tools</p>
+							<p>Personally i feel the main issue is that the original goals were wrong</p>
+						</aside>
 					</section>
 					<section>
 						<h2>Wrong goals</h2>
@@ -145,6 +156,9 @@
 				<section>
 					<section>
 						<h1>The original sin</h1>
+						<aside class="notes">
+							<p>The original sin of bad CD is the illusion that it can solve systemic issues in your company</p>
+						</aside>
 					</section>
 					<section>
 						<h2>Fragile system</h2>
@@ -156,14 +170,25 @@
 			            </aside>
 					</section>
 					<section>
-						<h2>Unflexible architecture</h2>
+						<h2>Inflexible architecture</h2>
+						<aside class="notes">
+							<ul>
+								<li>Monolithic architectures, shared DBs</li>
+								<li>No support for multi-version</li>
+								<li>Long warmup/startup time</li>
+								<li>All or nothing architecture</li>
+							</ul>
+						</aside>
 					</section>
 					<section>
 						<h1>Systemic issues</h1>
 						<h2>Mentality is the biggest barrier</h2>
+						<aside class="notes">
+							<p>People turn to CD thinking it's a problem of tooling and automation. But it's really a problem of mentality and culture</p>
+						</aside>
 					</section>
 				</section>
-						
+
 				<section>
 					<section>
 						<h1>Back to the basics</h1>
@@ -184,14 +209,29 @@
 							<li>Analytics, metrics</li>
 							<li>Hands-on</li>
 						</ul>
+						<aside class="notes">
+							<ul>
+								<li>This is the part most companies neglect</li>
+								<li>People invest in one side of the feedback loop, the other way is often blocked</li>
+							</ul>
+						</aside>
 					</section>
 					<section>
 						<h2>Concurrent deploys</h2>
+						<aside class="notes">
+							<ul>
+								<li>Deployment start is objective, the end is subjective</li>
+								<li>SOA means every team can deploy independently</li>
+							</ul>
+						</aside>
 					</section>
 					<section>
 						<h2>Cross company effects</h2>
+						<aside class="notes">
+							<p>story of the company that wanted instant CD but was still doing everything manually</p>
+						</aside>
 					</section>
-<!-- 					<section>
+<!-- 				<section>
 						<h2>Code always warm</h2>
 					</section> -->
 				</section>
@@ -206,6 +246,7 @@
 								<li>File distribution isn't really that big a deal, it's been solved 15 years ago</li>
 								<li>Unless you are deploying to 20k servers at once, shipping the code is easy</li>
 								<li>Fabric vs Capistrano vs Chef vs Puppet vs Salt vs Ansible vs * catfights are ridiculous</li>
+								<li>Important to use consitent toolkit across dev-qa-prod</li>
 							</ul>
 						</aside>
 					</section>
@@ -216,7 +257,7 @@
 							<li>Monitoring/Telemetry</li>
 							<li>Understanding system behaviour</li>
 						</ul>
-					</section>	
+					</section>
 					<section>
 						<h2>C.D. is about Architecture</h2>
 						<aside class="notes">
@@ -232,7 +273,7 @@
 						<h2>C.D. is about Culture</h2>
 					</section>
 				</section>
-				<section>	
+				<section>
 					<h1>Thank you</h1>
 					<aside class="notes">
 						<ul>
