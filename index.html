@@ -92,10 +92,14 @@
 							<ul>
 								<li>Sure, there were some sour faces, but that's to be expected</li>
 							</ul>
+							<p>Then one day, the system crashes</p>
 						</aside>
 					</section>
 					<section>
 						<h1>Then disaster struck</h1>
+						<aside class="notes">
+							<p>And nobody seems to be able to get the system back up. Debugging is so much harder, making changes in production is hard, monitoring isn't good, synchronizing emergency work across teams is change deployment mechanics</p>
+						</aside>
 					</section>
 					<section>
 						<img src="http://img1.wikia.nocookie.net/__cb20090718002225/en.futurama/images/0/0a/Futurama_209_-_Why_Must_I_Be_a_Crustacean_in_Love_.jpg">
@@ -105,7 +109,7 @@
 								<li>Classic department blame game</li>
 								<li>Production system degraded over time</li>
 								<li>No visibility and control</li>
-								<li>Very hard to fix things, everything "frozen" and hardcoded</li>
+								<li>Very hard to change deployment mechanics, everything "frozen" and hardcoded</li>
 							</ul>
 							<p>We now have a continuous disaster</p>
 						</aside>
@@ -122,10 +126,10 @@
 						<aside class="notes">
 							<ul>
 								<li>Responsibilities and Control misaligned</li>
-								<li>Whollistic process with siloed teams</li>
 								<li>Impossible to coordinate changes</li>
 								<li>Lots of ping-pong between teams</li>
 							</ul>
+							<p>Whollistic process can't work with siloed teams</p>
 						</aside>
 					</section>
 					<section>
@@ -135,12 +139,14 @@
 								<li>So anything not in CD is way behind schedule</li>
 								<li>E.g. a new feature takes 1 click to deploy but getting it monitored means waiting 1-2 days for the monitoring team</li>
 							</ul>
+							<p>Day to day must be encapsulate within a team</p>
 						</aside>
 					</section>
 					<section>
 						<h2>Tools alone will not save you</h2>
 						<aside class="notes">
 							<p>Stories: the company with hidden CI server, the company with multiple deployment tools</p>
+							<p>So just bringing in tools doesn't help unless you are using them wisely</p>
 							<p>Personally i feel the main issue is that the original goals were wrong</p>
 						</aside>
 					</section>
@@ -169,6 +175,7 @@
 			                <li>Most systems are fragile regardless of deployment</li>
 			                <li>Deployments break the system because everything breaks it</li>
 			              </ul>
+			              <p>CD won't make a fragile system robust</p>
 			            </aside>
 					</section>
 					<section>
@@ -186,7 +193,7 @@
 						<h2>Mentality and Culture</h2>
 						<aside class="notes">
 							<p>People turn to CD thinking it's a problem of tooling and automation. But it's really a problem of mentality and culture</p>
-							<p>CD is often imposed on the organization, not grown and nurtured from within</p>
+							<p>CD should grow from withing and not be imposed by artificial goals from the top brass. If you have the right culture and organizal structure, CD will take root easily</p>
 						</aside>
 					</section>
 				</section>
