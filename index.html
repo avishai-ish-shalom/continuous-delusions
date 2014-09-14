@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Contiuous Delusions - The hard truth about continuous delivery</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="A presentation about the cultural implications of CD">
+		<meta name="author" content="Avishai Ish-Shalom">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -119,19 +119,20 @@
 				</section>
 				<section>
 					<section>
-						<img src="http://basementrejects.com/wp-content/uploads/2013/08/futurama-season-1-4-loves-labours-lost-in-space-leela-zapp-brannigan.jpg">
+						<img src="assets/images/question mark.png">
 						<h3>How did we get here?</h3>
 					</section>
 					<section>
 						<h2>Incompatible organizational structure</h2>
 						<h3>(Conway's Law)</h3>
 						<aside class="notes">
+							<p>Organizations are constrained to build systems which mirror the communication patterns of the organization</p>
+							<p>It's hard to make a whollistic process like CD work with siloed teams</p>
 							<ul>
 								<li>Hard to coordinate changes</li>
 								<li>Responsibilities and Control misaligned</li>
 								<li>Lots of ping-pong between teams</li>
 							</ul>
-							<p>It's hard to make a whollistic process like CD work with siloed teams</p>
 						</aside>
 					</section>
 					<section>
@@ -149,16 +150,17 @@
 						<aside class="notes">
 							<p>Stories: the company with hidden CI server, the company with multiple deployment tools</p>
 							<p>So just bringing in tools doesn't help unless you are using them wisely</p>
-							<p>Personally i feel the main issue is that the original goals were wrong</p>
+							<p>people introduce automation to faclitate CD</p>
 						</aside>
 					</section>
 					<section>
 						<h2>Careless automation</h2>
 						<aside class="notes">
 							<ul>
-								<li>Automation requires hard coding certain assumtions</li>
+								<li>Automation requires hard coding certain assumtions; when those assumptions break you have new problems</li>
 								<li>Automation takes away operator leeway and adds complexity</li>
 							</ul>
+							<p>Personally i feel the main issue is that the original goals were wrong</p>
 						</aside>
 					</section>
 					<section>
@@ -169,15 +171,21 @@
 								<li>we want to deploy whenever we need to</li>
 								<li>artificial goals makes people focus on the wrong problems</li>
 							</ul>
+							<p>To understand the correct goals, we should ask ourself what was wrong in the first place</p>
 						</aside>
 					</section>
 				</section>
 				<section>
 					<section>
-						<h1>The original sin</h1>
+						<h1>The delusion</h1>
+						<h2>Deployment is hard, CD makes it easier</h2>
 						<aside class="notes">
 							<p>Instead of dealing with the problems people have with current deployment process, they turn to CD for slavation</p>
-							<p>The original sin of bad CD is the delusion that it can solve systemic issues in your company</p>
+							<ul>
+								<li>Deployment is a relatively controllable process, it shouldn't be that hard</li>
+								<li>Systemic issues</li>								
+							</ul>
+							<p>but why did you have bad deployment to begin with?</p>
 						</aside>
 					</section>
 					<section>
@@ -206,6 +214,7 @@
 						<aside class="notes">
 							<p>People turn to CD thinking it's a problem of tooling and automation. But it's really a problem of mentality and culture</p>
 							<p>CD should grow from withing and not be imposed by artificial goals from the top brass. If you have the right culture and organizal structure, CD will take root easily</p>
+							<p>CD cannot solve systemic issues within your company</p>
 						</aside>
 					</section>
 				</section>
@@ -258,16 +267,6 @@
 				<section>
 					<section>
 						<h1>Bottom line</h1>
-					</section>
-					<section>
-						<h1>The delusion</h1>
-						<h2>Deployment is hard, CD makes it easier</h2>
-						<aside class="notes">
-							<ul>
-								<li>Deployment is a relatively controllable process, it shouldn't be that hard</li>
-								<li>Systemic issues</li>
-							</ul>
-						</aside>
 					</section>
 					<section>
 						<h2>C.D. is about Control</h2>
